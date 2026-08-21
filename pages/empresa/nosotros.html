@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<base id="siteBase" href="/">
+<script>if (location.hostname.endsWith("github.io")) document.getElementById("siteBase").href = "/noema-indumentaria/";</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nosotros · NOEMA</title>
+<meta name="description" content="La historia detrás de NOEMA: por qué diseñamos indumentaria pensada para durar.">
+<meta name="theme-color" content="#211f1c">
+<link rel="icon" type="image/svg+xml" href="assets/img/brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="preloader" id="preloader">
+  <span class="preloader__mark">NOEMA</span>
+  <span class="preloader__rule"></span>
+</div>
+
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<!-- ANUNCIO -->
+<div class="announce" id="announce">
+  <span class="announce__msg is-active">Envío gratis en compras +$80.000</span>
+  <span class="announce__msg">Cambios sin cargo dentro de los 30 días</span>
+  <span class="announce__msg">Empaque de regalo sin cargo</span>
+</div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <button class="nav__burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <a href="index.html" class="nav__logo">
+    <img src="assets/img/brand/logo.svg" alt="NOEMA" width="132" height="38">
+  </a>
+  <ul class="nav__links" id="navLinks">
+    <li><a href="pages/tienda/productos.html">Tienda</a></li>
+    <li><a href="index.html#colecciones">Colecciones</a></li>
+    <li><a href="pages/ayuda/guia-talles.html">Guía de talles</a></li>
+    <li><a href="pages/ayuda/envio.html">Envío</a></li>
+    <li><a href="pages/empresa/nosotros.html">Nosotros</a></li>
+    <li><a href="pages/empresa/contacto.html">Contacto</a></li>
+  </ul>
+  <div class="nav__actions">
+    <button class="icon-btn" id="searchBtn" aria-label="Buscar">
+      <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    </button>
+    <a class="icon-btn" id="wishBtn" href="pages/tienda/favoritos.html" aria-label="Favoritos">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-7.5-4.6-10-9.3C.4 8 2 4 6 4c2.3 0 3.9 1.3 6 3.6C14.1 5.3 15.7 4 18 4c4 0 5.6 4 4 7.7C19.5 16.4 12 21 12 21z"/></svg>
+      <span class="icon-btn__badge" id="wishCount" hidden>0</span>
+    </a>
+    <button class="icon-btn" id="cartBtn" aria-label="Carrito">
+      <svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="21" r="1.4"/><circle cx="17" cy="21" r="1.4"/></svg>
+      <span class="icon-btn__badge" id="cartCount" hidden>0</span>
+    </button>
+  </div>
+</nav>
+
+<!-- BUSCADOR -->
+<div class="search-panel" id="searchPanel">
+  <div class="search-panel__box">
+    <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+    <input type="text" id="searchInput" placeholder="Buscar productos…" autocomplete="off">
+    <button class="icon-btn" id="searchClose" aria-label="Cerrar búsqueda">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="search-panel__results" id="searchResults"></div>
+</div>
+
+<!-- NOSOTROS -->
+<section class="content">
+  <div class="wrap">
+    <p class="kicker reveal">Nuestra historia</p>
+    <h1 class="headline reveal reveal-1">Diseño que perdura</h1>
+    <p class="content__lede reveal reveal-2">NOEMA nació de una idea simple: comprar menos, pero mejor. Prendas pensadas para acompañarte varias temporadas, no una sola.</p>
+
+    <div class="content__section reveal">
+      <div class="content__grid content__grid--media">
+        <div class="content__banner content__banner--inline">
+          <img src="assets/img/campaign/nosotros.png" alt="Equipo de NOEMA seleccionando telas y muestras en el showroom" loading="lazy">
+        </div>
+        <div class="content__stack">
+          <div>
+            <h2>Cómo empezamos</h2>
+            <p>NOEMA arrancó en 2019 en un taller pequeño en Buenos Aires, cansados de ver cómo la moda rápida llenaba los placares de prendas que duraban una temporada y terminaban descartadas. Empezamos con seis piezas de lana y lino, cosidas por un grupo reducido de talleristas locales.</p>
+            <p>Hoy seguimos trabajando con la misma lógica: colecciones chicas, materiales nobles y nada que dependa de una tendencia para verse bien el año que viene.</p>
+          </div>
+          <div>
+            <h2>Nuestros materiales</h2>
+            <p>Elegimos lana merino, seda natural, lino y cueros curtidos con procesos de bajo impacto. Preferimos pagar un poco más por una tela que envejece bien antes que abaratar costos con sintéticos que se deforman al segundo lavado.</p>
+            <p>Cada colección se produce en tiradas limitadas: preferimos quedarnos sin stock a producir de más y generar descarte.</p>
+          </div>
+          <div>
+            <h2>En números</h2>
+            <div class="content__stats">
+              <div><h3>2019</h3><p>Año de nuestra primera colección.</p></div>
+              <div><h3>3</h3><p>Talleres textiles con los que trabajamos en Argentina.</p></div>
+              <div><h3>4</h3><p>Colecciones cápsula por año, sin reposición fuera de temporada.</p></div>
+              <div><h3>+8.000</h3><p>Clientas y clientes que ya confiaron en nosotros.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contacto" class="footer">
+  <div class="wrap footer__grid">
+    <div class="footer__brand">
+      <img src="assets/img/brand/logo-white.svg" alt="NOEMA" width="140" height="40">
+      <p>Indumentaria atemporal y accesorios de cuero, confeccionados con materiales nobles. Envíos a toda Argentina.</p>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+        <a href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M14 3v11a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 3c0 3 2 5 5 5"/></svg></a>
+        <a href="https://wa.me/5491100000000?text=%C2%A1Hola!%20Tengo%20una%20consulta%20sobre%20NOEMA." aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 20l1.4-4A8 8 0 1 1 9 19l-5 1z"/></svg></a>
+      </div>
+    </div>
+    <div class="footer__col">
+      <h4>Tienda</h4>
+      <a href="pages/tienda/productos.html">Todos los productos</a>
+      <a href="index.html#colecciones">Colecciones</a>
+      <a href="pages/tienda/productos.html?cat=hombre">Hombre</a>
+      <a href="pages/tienda/productos.html?cat=mujer">Mujer</a>
+    </div>
+    <div class="footer__col">
+      <h4>Ayuda</h4>
+      <a href="pages/ayuda/envio.html">Envío</a>
+      <a href="pages/ayuda/estado-pedido.html">Estado de mi pedido</a>
+      <a href="pages/ayuda/cambios-devoluciones.html">Cambios y devoluciones</a>
+      <a href="pages/ayuda/guia-talles.html">Guía de talles</a>
+      <a href="pages/ayuda/preguntas-frecuentes.html">Preguntas frecuentes</a>
+    </div>
+    <div class="footer__col">
+      <h4>Empresa</h4>
+      <a href="pages/empresa/nosotros.html">Nosotros</a>
+      <a href="pages/empresa/sustentabilidad.html">Sustentabilidad</a>
+      <a href="pages/empresa/trabaja-con-nosotros.html">Trabajá con nosotros</a>
+      <a href="pages/empresa/contacto.html">Contacto</a>
+    </div>
+  </div>
+  <div class="wrap footer__note">
+    <span>© 2026 NOEMA. Marca ficticia de demostración.</span>
+    <span class="footer__credit">Sitio de prueba realizado por <img class="footer__deploy-logo" src="assets/img/brand/deploy-logo.png" alt="Deploy" width="900" height="200" loading="lazy"></span>
+  </div>
+</footer>
+
+<!-- OVERLAY -->
+<div class="overlay" id="overlay"></div>
+
+<!-- CARRITO -->
+<aside class="cart-drawer" id="cartDrawer" aria-hidden="true">
+  <div class="cart-drawer__head">
+    <h3>Tu carrito <span id="cartDrawerCount">(0)</span></h3>
+    <button class="icon-btn" id="cartClose" aria-label="Cerrar carrito">
+      <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="cart-drawer__body" id="cartItems">
+    <div class="cart-empty" id="cartEmpty">
+      <svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/><circle cx="10" cy="21" r="1.4"/><circle cx="17" cy="21" r="1.4"/></svg>
+      <p>Tu carrito está vacío</p>
+      <button class="btn btn--ghost" id="cartEmptyBtn">Ver catálogo</button>
+    </div>
+  </div>
+  <div class="cart-drawer__footer" id="cartFooter" hidden>
+    <div class="cart-drawer__row">
+      <span>Subtotal</span>
+      <strong id="cartSubtotal">$0</strong>
+    </div>
+    <p class="cart-drawer__note">Envío e impuestos se calculan al finalizar la compra.</p>
+    <button class="btn btn--primary btn--block" id="checkoutBtn">Ir a pagar</button>
+  </div>
+</aside>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
