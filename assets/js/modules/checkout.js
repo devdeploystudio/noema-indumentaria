@@ -1,6 +1,7 @@
 import { $, $$ } from './dom.js';
 import { money } from './format.js';
-import { PRODUCTS, COUPONS, DEMO_ORDERS } from './data.js';
+import { DEMO_ORDERS } from './data.js';
+import { PRODUCTS, COUPONS } from './admin-store.js';
 import { store, saveCart, cartTotal } from './store.js';
 import { mediaHTML } from './product-card.js';
 import { renderCart, updateBadges } from './cart.js';
@@ -57,16 +58,18 @@ if (couponApply) {
     }
     const code = couponInput.value.trim().toUpperCase();
     if (!code) return;
-    if (COUPONS[code]) {
-      store.coupon = { code, rate: COUPONS[code] };
-      couponMsg.textContent = `Cupón "${code}" aplicado: ${Math.round(COUPONS[code] * 100)}% OFF`;
+    const coupon = COUPONS[code];
+    const isExpired = coupon?.expires && new Date(`${coupon.expires}T23:59:59`) < new Date();
+    if (coupon && !isExpired) {
+      store.coupon = { code, rate: coupon.rate };
+      couponMsg.textContent = `Cupón "${code}" aplicado: ${Math.round(coupon.rate * 100)}% OFF`;
       couponMsg.className = 'coupon__msg is-success';
       couponInput.disabled = true;
       couponApply.textContent = 'Quitar';
       couponApply.dataset.applied = '1';
     } else {
       store.coupon = null;
-      couponMsg.textContent = 'Cupón inválido o vencido.';
+      couponMsg.textContent = isExpired ? 'Ese cupón ya venció.' : 'Cupón inválido o vencido.';
       couponMsg.className = 'coupon__msg is-error';
     }
     couponMsg.hidden = false;

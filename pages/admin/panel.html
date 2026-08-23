@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<base id="siteBase" href="/">
+<script>if (location.hostname.endsWith("github.io")) document.getElementById("siteBase").href = "/noema-indumentaria/";</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel · NOEMA</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#211f1c">
+<link rel="icon" type="image/svg+xml" href="assets/img/brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<div class="admin-shell">
+  <header class="admin-topbar">
+    <a href="index.html" class="admin-topbar__logo">
+      <img src="assets/img/brand/logo.svg" alt="NOEMA" width="132" height="38">
+    </a>
+    <span class="admin-topbar__tag">Panel interno</span>
+    <div class="admin-topbar__actions">
+      <a href="index.html" target="_blank" rel="noopener noreferrer" class="btn btn--ghost" style="padding:8px 18px;" title="Abre la tienda en una pestaña nueva con los cambios actuales, antes de publicarlos.">Vista previa</a>
+      <button type="button" class="btn btn--primary" id="publishBtn" style="padding:8px 18px;" title="Simulado en esta demo: no se sube nada real a ningún servidor.">
+        <span id="publishBtnLabel">Publicar cambios</span>
+      </button>
+      <a href="index.html">Volver al sitio</a>
+      <button type="button" class="btn btn--ghost" id="logoutBtn" style="padding:8px 18px;">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <div class="wrap admin-grid">
+
+      <section class="admin-section" id="discountSection">
+        <div class="admin-section__head">
+          <div>
+            <h2>Descuento general</h2>
+            <p class="admin-section__hint">Se aplica sobre el precio de todos los productos de la tienda.</p>
+          </div>
+        </div>
+        <form class="admin-discount" id="discountForm" novalidate>
+          <p class="form-alert" id="discountAlert" hidden></p>
+          <label>% de descuento
+            <input type="number" id="discountInput" min="0" max="90" step="1" placeholder="0" required>
+          </label>
+          <button type="submit" class="btn btn--primary">Aplicar</button>
+          <button type="button" class="btn btn--ghost" id="clearDiscountBtn">Quitar descuento</button>
+        </form>
+        <p class="admin-discount-status" id="discountStatus" hidden></p>
+      </section>
+
+      <section class="admin-section" id="couponsSection">
+        <div class="admin-section__head">
+          <div>
+            <h2>Cupones de descuento</h2>
+            <p class="admin-section__hint">Códigos que los clientes pueden aplicar en el checkout.</p>
+          </div>
+        </div>
+        <form class="admin-coupon-form" id="couponForm" novalidate>
+          <p class="form-alert" id="couponAlert" hidden></p>
+          <label>Código
+            <input type="text" id="couponCode" placeholder="BIENVENIDA15" required>
+          </label>
+          <label>% off
+            <input type="number" id="couponRate" min="1" max="90" step="1" placeholder="15" required>
+          </label>
+          <label>Vence (opcional)
+            <input type="date" id="couponExpires">
+          </label>
+          <button type="submit" class="btn btn--primary">Agregar cupón</button>
+        </form>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="couponsTable">
+            <thead><tr><th>Código</th><th>Descuento</th><th>Vence</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p class="admin-empty" id="couponsEmpty" hidden>Todavía no hay cupones cargados.</p>
+      </section>
+
+      <section class="admin-section" id="badgesSection">
+        <div class="admin-section__head">
+          <div>
+            <h2>Etiquetas</h2>
+            <p class="admin-section__hint">Todas se pueden editar (tocá el texto) o borrar, incluidas las de fábrica.</p>
+          </div>
+        </div>
+        <form class="admin-coupon-form" id="badgeForm" novalidate>
+          <p class="form-alert" id="badgeAlert" hidden></p>
+          <label>Texto de la etiqueta
+            <input type="text" id="badgeTextInput" placeholder="Edición limitada" required>
+          </label>
+          <label>Función (opcional)
+            <select id="badgeFnInput">
+              <option value="">Sin función especial</option>
+              <option value="autoNew">Auto-asignar a productos nuevos</option>
+              <option value="discount">Detectar % de descuento del producto</option>
+            </select>
+          </label>
+          <label id="badgeAutoNewDaysRow" hidden>Días
+            <input type="number" id="badgeAutoNewDaysInput" min="1" max="365" value="30">
+          </label>
+          <label id="badgeDiscountStyleRow" hidden>Estilo
+            <select id="badgeDiscountStyleInput"></select>
+          </label>
+          <button type="submit" class="btn btn--primary">Agregar etiqueta</button>
+        </form>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="badgesTable">
+            <thead><tr><th>Etiqueta</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="admin-section" id="categoriesSection">
+        <div class="admin-section__head">
+          <div>
+            <h2>Categorías</h2>
+            <p class="admin-section__hint">Se usan para clasificar productos y como pestañas de filtro en la tienda. Tocá el nombre para renombrarla.</p>
+          </div>
+        </div>
+        <form class="admin-coupon-form" id="categoryForm" novalidate>
+          <p class="form-alert" id="categoryAlert" hidden></p>
+          <label>Nombre
+            <input type="text" id="categoryLabelInput" placeholder="Niños" required data-only="letters">
+          </label>
+          <button type="submit" class="btn btn--primary">Agregar categoría</button>
+        </form>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="categoriesTable">
+            <thead><tr><th>Nombre</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="admin-section" id="sizesSection">
+        <div class="admin-section__head">
+          <div>
+            <h2>Talles</h2>
+            <p class="admin-section__hint">Organizados por categoría (prendas, calzado, etc). Se usan al armar un producto según su tipo de talle.</p>
+          </div>
+        </div>
+        <form class="admin-coupon-form" id="sizeGroupForm" novalidate>
+          <p class="form-alert" id="sizeGroupAlert" hidden></p>
+          <label>Nueva categoría de talles
+            <input type="text" id="sizeGroupLabelInput" placeholder="Ej: Accesorios" required data-only="letters">
+          </label>
+          <button type="submit" class="btn btn--primary">Agregar categoría</button>
+        </form>
+        <div class="admin-size-groups" id="sizeGroupsList"></div>
+      </section>
+
+      <section class="admin-section" id="productsSection">
+        <div class="admin-section__head">
+          <div>
+            <h2>Productos</h2>
+            <p class="admin-section__hint">Stock, precios, descuentos por producto y catálogo general.</p>
+          </div>
+          <button type="button" class="btn btn--primary" id="addProductBtn">+ Agregar producto</button>
+        </div>
+        <div class="admin-products-controls">
+          <input type="text" id="productSearch" placeholder="Buscar por nombre…">
+          <select id="productFilterCategory">
+            <option value="">Todas las categorías</option>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+            <option value="accesorios">Accesorios</option>
+          </select>
+          <select id="productSort">
+            <option value="">Orden: sin ordenar</option>
+            <option value="name-asc">Nombre A-Z</option>
+            <option value="name-desc">Nombre Z-A</option>
+            <option value="price-asc">Precio: menor a mayor</option>
+            <option value="price-desc">Precio: mayor a menor</option>
+            <option value="stock-asc">Stock: menor a mayor</option>
+          </select>
+        </div>
+        <div class="admin-table-wrap">
+          <table class="admin-table" id="productsTable">
+            <thead><tr><th></th><th>Producto</th><th>Categoría</th><th>Precio</th><th>Stock</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="admin-section">
+        <div class="admin-section__head">
+          <div>
+            <h2>Restaurar valores originales</h2>
+            <p class="admin-section__hint">Borra productos nuevos, ediciones, cupones y descuentos, y vuelve al catálogo de fábrica.</p>
+          </div>
+          <button type="button" class="btn btn--ghost" id="resetBtn">Restaurar todo</button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+<div class="admin-overlay" id="productOverlay">
+  <div class="admin-modal">
+    <h2 id="productModalTitle">Agregar producto</h2>
+    <form id="productForm" novalidate>
+      <input type="hidden" name="productId">
+      <p class="form-alert" id="productAlert" hidden></p>
+      <div class="form-grid">
+        <label class="span2">Nombre
+          <input type="text" name="productName" required>
+        </label>
+        <label>Categoría
+          <select name="category" required>
+            <option value="hombre">Hombre</option>
+            <option value="mujer">Mujer</option>
+            <option value="accesorios">Accesorios</option>
+          </select>
+        </label>
+        <label>Etiqueta
+          <select name="badge">
+            <option value="">Sin etiqueta</option>
+            <option value="Nuevo">Nuevo</option>
+          </select>
+        </label>
+        <label>Precio
+          <input type="number" name="price" min="0" step="1" required>
+        </label>
+        <label>Descuento % (opcional)
+          <input type="number" name="discount" min="0" max="90" step="1" placeholder="0">
+        </label>
+        <label class="span2 admin-price-preview" id="finalPriceRow" hidden>Queda en
+          <input type="number" id="finalPriceInput" min="0" step="1">
+        </label>
+        <div class="span2">
+          <span class="admin-field-label">Fotos del producto</span>
+          <div class="admin-gallery" id="productGallery"></div>
+          <div class="admin-img-field__controls">
+            <input type="text" id="productImgUrl" placeholder="ruta o URL de imagen, y Enter">
+            <label class="btn btn--ghost admin-img-field__upload">
+              Subir fotos
+              <input type="file" id="productImgFile" accept="image/*" multiple hidden>
+            </label>
+          </div>
+          <input type="hidden" name="img">
+        </div>
+        <label>Color
+          <input type="text" name="color" required>
+        </label>
+        <label>Tipo de talle
+          <select name="sizeType" id="sizeTypeSelect"></select>
+        </label>
+        <div class="span2">
+          <span class="admin-field-label">Talles disponibles</span>
+          <div class="size-picker" id="sizePicker"></div>
+          <input type="hidden" name="sizes" required>
+        </div>
+        <div class="admin-stock-grid" id="stockGrid"></div>
+        <p class="admin-stock-total span2" id="stockTotal"></p>
+        <label class="span2">Descripción
+          <textarea name="desc" rows="3"></textarea>
+        </label>
+      </div>
+      <div class="admin-modal__foot">
+        <button type="button" class="btn btn--ghost" id="cancelProductBtn">Cancelar</button>
+        <button type="submit" class="btn btn--primary">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module" src="assets/js/admin-panel.js"></script>
+</body>
+</html>

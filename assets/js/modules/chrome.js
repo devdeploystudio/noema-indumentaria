@@ -1,35 +1,13 @@
 import { $, $$ } from './dom.js';
 import { money } from './format.js';
-import { PRODUCTS } from './data.js';
+import { PRODUCTS } from './admin-store.js';
+import { initCursor } from './cursor.js';
 
 window.addEventListener('load', () => {
   setTimeout(() => $('#preloader').classList.add('is-hidden'), 400);
 });
 
-(() => {
-  const dot = $('#cursorDot'), ring = $('#cursorRing');
-  if (!dot || !ring || matchMedia('(pointer:coarse)').matches) return;
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  window.addEventListener('mousemove', (e) => {
-    mx = e.clientX; my = e.clientY;
-    dot.style.left = mx + 'px'; dot.style.top = my + 'px';
-    const onDark = !!e.target.closest('.footer, .promo__copy');
-    dot.classList.toggle('is-on-dark', onDark);
-    ring.classList.toggle('is-on-dark', onDark);
-  });
-  const loop = () => {
-    rx += (mx - rx) * 0.18; ry += (my - ry) * 0.18;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(loop);
-  };
-  loop();
-  document.addEventListener('mouseover', (e) => {
-    if (e.target.closest('a,button,input,select,.tab,.product,.collection')) ring.classList.add('is-active');
-  });
-  document.addEventListener('mouseout', (e) => {
-    if (e.target.closest('a,button,input,select,.tab,.product,.collection')) ring.classList.remove('is-active');
-  });
-})();
+initCursor();
 
 const io = new IntersectionObserver((entries) => {
   entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); } });

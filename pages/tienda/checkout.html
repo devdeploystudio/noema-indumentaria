@@ -154,6 +154,7 @@
                 <input type="text" id="cardCvv" inputmode="numeric" maxlength="4" placeholder="123" required>
               </label>
             </div>
+            <p class="pay-panel__info"><em>(simulado en esta demo: podés ingresar cualquier número, no se procesa ningún pago real)</em></p>
           </div>
           <div class="pay-panel" id="panelMercadopago">
             <p class="pay-panel__info">Vas a ser redirigido a Mercado Pago para completar el pago de forma segura. <em>(simulado en esta demo)</em></p>
@@ -175,8 +176,9 @@
               <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 6"/></svg>
             </div>
             <h3>¡Compra confirmada!</h3>
-            <p>Te enviamos un email con el detalle de tu pedido.</p>
+            <p>Te enviamos un email con el detalle de tu pedido. <em>(simulado en esta demo: no se envía ningún email real)</em></p>
             <p class="checkout__order">Pedido <strong id="orderNumber">#NOE-000000</strong></p>
+            <p style="font-size:12px; margin-top:6px; opacity:.65;"><em>Guardá este número o usá el botón de abajo para probar "Seguir mi envío" con datos ya cargados.</em></p>
             <div class="checkout__success-actions">
               <a href="pages/ayuda/estado-pedido.html" id="trackOrderBtn" class="btn btn--ghost">
                 <svg viewBox="0 0 24 24" width="16" height="16"><path d="M4 10l8-6 8 6M6 10v9h12v-9"/></svg>
@@ -197,6 +199,7 @@
             <button type="button" class="btn btn--ghost" id="couponApply">Aplicar</button>
           </div>
           <p class="coupon__msg" id="couponMsg" hidden></p>
+          <p style="font-size:12px; margin-top:6px; opacity:.65;"><em>Sitio de demostración: probá el código BIENVENIDA15 para ver un 15% off simulado.</em></p>
         </div>
         <div class="checkout__totals">
           <div><span>Subtotal</span><span id="sumSubtotal">$0</span></div>

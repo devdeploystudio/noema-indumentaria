@@ -1,4 +1,4 @@
-import { PRODUCTS } from './data.js';
+import { PRODUCTS } from './admin-store.js';
 
 // carritos guardados por una versión anterior del sitio no tenían talle: se descartan
 // esas líneas para no mostrar "Talle undefined" en el carrito.

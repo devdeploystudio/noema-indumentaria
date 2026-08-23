@@ -1,5 +1,6 @@
 import { $, $$ } from './dom.js';
-import { PRODUCTS, FEATURED_IDS } from './data.js';
+import { FEATURED_IDS } from './data.js';
+import { PRODUCTS, CATEGORIES } from './admin-store.js';
 import { store, saveWish } from './store.js';
 import { productCardHTML, sortProducts } from './product-card.js';
 import { updateBadges } from './cart.js';
@@ -32,10 +33,16 @@ if (catalogTabs) {
 if (sortSelect) {
   sortSelect.addEventListener('change', () => { store.sort = sortSelect.value; renderCatalog(); });
 }
+if (catalogTabs) {
+  catalogTabs.insertAdjacentHTML('beforeend', CATEGORIES.map((c) =>
+    `<button class="tab" data-filter="${c.slug}">${c.label}</button>`
+  ).join(''));
+}
+
 if (catalogGrid) {
   const params = new URLSearchParams(window.location.search);
   const cat = params.get('cat');
-  if (cat && ['hombre', 'mujer', 'accesorios'].includes(cat)) setFilter(cat); else renderCatalog();
+  if (cat && CATEGORIES.some((c) => c.slug === cat)) setFilter(cat); else renderCatalog();
   const highlight = params.get('highlight');
   if (highlight) {
     setTimeout(() => {

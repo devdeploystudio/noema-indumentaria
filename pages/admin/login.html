@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<base id="siteBase" href="/">
+<script>if (location.hostname.endsWith("github.io")) document.getElementById("siteBase").href = "/noema-indumentaria/";</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panel · NOEMA</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#211f1c">
+<link rel="icon" type="image/svg+xml" href="assets/img/brand/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/admin.css">
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+<div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+<div class="admin-shell">
+  <header class="admin-topbar">
+    <a href="index.html" class="admin-topbar__logo">
+      <img src="assets/img/brand/logo.svg" alt="NOEMA" width="132" height="38">
+    </a>
+    <span class="admin-topbar__tag">Panel interno</span>
+    <div class="admin-topbar__actions">
+      <a href="index.html">Volver al sitio</a>
+    </div>
+  </header>
+
+  <main class="admin-login">
+    <div class="admin-login__card">
+      <p class="kicker">Acceso restringido</p>
+      <h1>Iniciar sesión</h1>
+      <p class="admin-login__lede">Gestioná productos, stock, descuentos y cupones de la tienda.</p>
+
+      <form class="form-grid" id="loginForm" novalidate>
+        <p class="form-alert" id="loginAlert" hidden>Usuario o contraseña incorrectos.</p>
+        <label class="span2">Usuario
+          <input type="text" name="user" required placeholder="admin" autocomplete="username">
+        </label>
+        <label class="span2">Contraseña
+          <input type="password" name="pass" required placeholder="••••••••" autocomplete="current-password">
+        </label>
+        <button type="submit" class="btn btn--primary btn--block span2">Entrar</button>
+      </form>
+
+      <div class="admin-demo-card">
+        <p class="admin-demo-card__label">Usuario de prueba</p>
+        <button type="button" class="admin-demo-row" id="demoHint">
+          <span class="admin-demo-row__role">Administrador</span>
+          <span class="admin-demo-row__creds">admin / noema2026</span>
+        </button>
+      </div>
+
+      <p class="admin-login__foot"><a href="index.html">← Volver a la tienda</a></p>
+    </div>
+  </main>
+</div>
+
+<script type="module" src="assets/js/admin-login.js"></script>
+</body>
+</html>

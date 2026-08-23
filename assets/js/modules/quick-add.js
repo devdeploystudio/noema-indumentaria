@@ -1,4 +1,4 @@
-import { PRODUCTS } from './data.js';
+import { PRODUCTS } from './admin-store.js';
 import { money } from './format.js';
 import { mediaHTML } from './product-card.js';
 import { hasRealSizes, sizeTypeLabel, sizePickerHTML, stockFor } from './sizes.js';

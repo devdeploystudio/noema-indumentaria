@@ -1,6 +1,6 @@
 import { $ } from './dom.js';
 import { money } from './format.js';
-import { PRODUCTS } from './data.js';
+import { PRODUCTS } from './admin-store.js';
 import { store, saveCart, cartTotal, cartCount } from './store.js';
 import { mediaHTML } from './product-card.js';
 import { variantText } from './sizes.js';
