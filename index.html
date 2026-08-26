@@ -6,9 +6,26 @@
 <script>if (location.hostname.endsWith("github.io")) document.getElementById("siteBase").href = "/noema-indumentaria/";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NOEMA · Indumentaria atemporal</title>
-<meta name="description" content="Sitio de prueba de portfolio: e-commerce elegante con carrito, filtros de catálogo y checkout simulado.">
+<meta name="description" content="NOEMA: indumentaria atemporal y accesorios de cuero con materiales nobles y cortes precisos. Envío a todo el país, cambios sin cargo y pago 100% seguro. Sitio de e-commerce de demostración (portfolio).">
 <meta name="theme-color" content="#211f1c">
 <link rel="icon" type="image/svg+xml" href="assets/img/brand/favicon.svg">
+
+<!-- TODO: confirmar/actualizar la URL real al deployar -->
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="NOEMA">
+<meta property="og:locale" content="es_AR">
+<meta property="og:url" content="https://devdeploystudio.github.io/noema-indumentaria/">
+<meta property="og:title" content="NOEMA · Indumentaria atemporal">
+<meta property="og:description" content="NOEMA: indumentaria atemporal y accesorios de cuero con materiales nobles y cortes precisos. Envío a todo el país, cambios sin cargo y pago 100% seguro.">
+<meta property="og:image" content="https://devdeploystudio.github.io/noema-indumentaria/assets/img/campaign/campaign-hero.jpg">
+
+<!-- Social cards -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NOEMA · Indumentaria atemporal">
+<meta name="twitter:description" content="NOEMA: indumentaria atemporal y accesorios de cuero con materiales nobles y cortes precisos. Envío a todo el país, cambios sin cargo y pago 100% seguro.">
+<meta name="twitter:image" content="https://devdeploystudio.github.io/noema-indumentaria/assets/img/campaign/campaign-hero.jpg">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -31,7 +48,7 @@
       <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg>
     </button>
     <div class="promo-modal__media">
-      <img src="assets/img/campaign/campaign-promo.png" alt="" loading="lazy">
+      <img src="assets/img/campaign/campaign-promo.jpg" alt="Modelo luciendo prendas de la colección NOEMA" loading="lazy">
     </div>
     <div class="promo-modal__body">
       <div class="promo-modal__intro">
@@ -109,7 +126,7 @@
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="hero__bg" aria-hidden="true">
-    <img src="assets/img/campaign/campaign-hero.png" alt="" loading="eager">
+    <img src="assets/img/campaign/campaign-hero.jpg" alt="" loading="eager">
     <div class="hero__scrim"></div>
   </div>
   <div class="hero__content">
@@ -169,15 +186,15 @@
   </div>
   <div class="collections__grid">
     <a class="collection reveal reveal-1" href="pages/tienda/productos.html?cat=hombre">
-      <div class="ph ph--fill ph--photo"><img src="assets/img/products/product-blazer-negro.png" alt="Colección Hombre" loading="lazy"></div>
+      <div class="ph ph--fill ph--photo"><img src="assets/img/products/product-blazer-negro.jpg" alt="Colección Hombre" loading="lazy"></div>
       <span class="collection__label">Hombre</span>
     </a>
     <a class="collection reveal reveal-2" href="pages/tienda/productos.html?cat=mujer">
-      <div class="ph ph--fill ph--photo"><img src="assets/img/products/product-vestido-seda.png" alt="Colección Mujer" loading="lazy"></div>
+      <div class="ph ph--fill ph--photo"><img src="assets/img/products/product-vestido-seda.jpg" alt="Colección Mujer" loading="lazy"></div>
       <span class="collection__label">Mujer</span>
     </a>
     <a class="collection reveal reveal-3" href="pages/tienda/productos.html?cat=accesorios">
-      <div class="ph ph--fill ph--photo"><img src="assets/img/products/product-lentes-sol.png" alt="Colección Accesorios" loading="lazy"></div>
+      <div class="ph ph--fill ph--photo"><img src="assets/img/products/product-lentes-sol.jpg" alt="Colección Accesorios" loading="lazy"></div>
       <span class="collection__label">Accesorios</span>
     </a>
   </div>
@@ -203,7 +220,7 @@
 <section id="nosotros" class="promo">
   <div class="promo__art reveal">
     <div class="ph ph--fill ph--photo">
-      <img src="assets/img/campaign/campaign-promo.png" alt="Campaña NOEMA de la colección cápsula" loading="lazy">
+      <img src="assets/img/campaign/campaign-promo.jpg" alt="Campaña NOEMA de la colección cápsula" loading="lazy">
     </div>
   </div>
   <div class="promo__copy reveal reveal-1">
@@ -294,7 +311,7 @@
   </div>
   <div class="wrap footer__note">
     <span>© 2026 NOEMA. Marca ficticia de demostración.</span>
-    <span class="footer__credit">Sitio de prueba realizado por <img class="footer__deploy-logo" src="assets/img/brand/deploy-logo.png" alt="Deploy" width="900" height="200" loading="lazy"></span>
+    <span class="footer__credit">Sitio de prueba realizado por <a href="https://deploystudio.com.ar/" target="_blank" rel="noopener noreferrer"><img class="footer__deploy-logo" src="assets/img/brand/deploy-logo.png" alt="Deploy" width="900" height="200" loading="lazy"></a></span>
   </div>
 </footer>
 
