@@ -2,8 +2,8 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<base id="siteBase" href="/">
-<script>if (location.hostname.endsWith("github.io")) document.getElementById("siteBase").href = "/noema-indumentaria/";</script>
+<base id="siteBase" href="/noema-indumentaria/">
+<script>if (!location.hostname.endsWith("github.io")) document.getElementById("siteBase").href = "/";</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Cambios y devoluciones · NOEMA</title>
 <meta name="description" content="Política de cambios y devoluciones de NOEMA: 30 días sin cargo.">
@@ -28,7 +28,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/chrome.css">
 <link rel="stylesheet" href="assets/css/home.css">
