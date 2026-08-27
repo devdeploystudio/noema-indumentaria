@@ -46,9 +46,9 @@
 .promo-modal{
   position: fixed; inset:0; z-index: 1150; display:flex; align-items:center; justify-content:center;
   background: rgba(33,31,28,.5); opacity:0; visibility:hidden; padding:20px;
-  transition: opacity .4s var(--ease), visibility .4s var(--ease);
+  transition: opacity .4s var(--ease), visibility 0s .4s;
 }
-.promo-modal.is-open{ opacity:1; visibility:visible; }
+.promo-modal.is-open{ opacity:1; visibility:visible; transition: opacity .4s var(--ease), visibility 0s; }
 .promo-modal__panel{
   position:relative; width:100%; max-width:760px; max-height:90vh; overflow-y:auto; background: var(--card);
   border-radius:22px; overflow:hidden; display:grid; grid-template-columns: 1fr 1fr; box-shadow: 0 40px 90px rgba(17,17,17,.3);

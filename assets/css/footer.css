@@ -6,7 +6,7 @@
 .footer__social a{ width:36px; height:36px; border-radius:50%; border:1px solid rgba(245,244,240,.25); display:flex; align-items:center; justify-content:center; transition: background .25s, border-color .25s; }
 .footer__social a:hover{ background: var(--accent); border-color: var(--accent); color: var(--ink); }
 .footer__social svg{ width:16px; height:16px; }
-.footer__col h4{ font-size:13px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:16px; color: rgba(245,244,240,.5); }
+.footer__col h3{ font-size:13px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:16px; color: rgba(245,244,240,.5); }
 .footer__col{ display:flex; flex-direction:column; gap:11px; }
 .footer__col a{ color: rgba(245,244,240,.85); font-size:14.5px; transition: color .2s; }
 .footer__col a:hover{ color: var(--accent); }

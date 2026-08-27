@@ -29,7 +29,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/base.css">
+<link rel="stylesheet" href="assets/css/chrome.css">
+<link rel="stylesheet" href="assets/css/home.css">
+<link rel="stylesheet" href="assets/css/shop.css">
+<link rel="stylesheet" href="assets/css/cart-checkout.css">
+<link rel="stylesheet" href="assets/css/footer.css">
+<link rel="stylesheet" href="assets/css/responsive.css">
+<link rel="preload" as="image" href="assets/img/campaign/campaign-hero.jpg" fetchpriority="high">
 </head>
 <body>
 
@@ -126,7 +133,7 @@
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="hero__bg" aria-hidden="true">
-    <img src="assets/img/campaign/campaign-hero.jpg" alt="" loading="eager">
+    <img src="assets/img/campaign/campaign-hero.jpg" alt="" loading="eager" fetchpriority="high">
     <div class="hero__scrim"></div>
   </div>
   <div class="hero__content">
@@ -154,6 +161,7 @@
 
 <!-- BENEFICIOS -->
 <section class="features">
+  <h2 class="sr-only">Beneficios</h2>
   <div class="wrap features__grid">
     <div class="feature reveal">
       <svg viewBox="0 0 24 24"><path d="M3 4h2l2.4 12.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 8H6"/></svg>
@@ -286,14 +294,14 @@
       </div>
     </div>
     <div class="footer__col">
-      <h4>Tienda</h4>
+      <h3>Tienda</h3>
       <a href="pages/tienda/productos.html">Todos los productos</a>
       <a href="#colecciones">Colecciones</a>
       <a href="pages/tienda/productos.html?cat=hombre">Hombre</a>
       <a href="pages/tienda/productos.html?cat=mujer">Mujer</a>
     </div>
     <div class="footer__col">
-      <h4>Ayuda</h4>
+      <h3>Ayuda</h3>
       <a href="pages/ayuda/envio.html">Envío</a>
       <a href="pages/ayuda/estado-pedido.html">Estado de mi pedido</a>
       <a href="pages/ayuda/cambios-devoluciones.html">Cambios y devoluciones</a>
@@ -301,7 +309,7 @@
       <a href="pages/ayuda/preguntas-frecuentes.html">Preguntas frecuentes</a>
     </div>
     <div class="footer__col">
-      <h4>Empresa</h4>
+      <h3>Empresa</h3>
       <a href="pages/empresa/nosotros.html">Nosotros</a>
       <a href="pages/empresa/sustentabilidad.html">Sustentabilidad</a>
       <a href="pages/empresa/trabaja-con-nosotros.html">Trabajá con nosotros</a>

@@ -42,6 +42,7 @@ if (grid) {
         <div class="pd__info">
           <span class="pd__cat">${p.category}</span>
           <h1 class="pd__name">${p.name}</h1>
+          <h2 class="sr-only">Detalle del producto</h2>
           <span class="pd__price">${p.oldPrice ? `<span class="pd__price--old">${money(p.oldPrice)}</span>` : ''}${money(p.price)}</span>
           <p class="pd__desc">${p.desc || ''}</p>
           ${hasRealSizes(p) ? `
